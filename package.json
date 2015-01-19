@@ -1,0 +1,21 @@
+{
+  "name": "study-logger",
+  "version": "1.0.0",
+  "description": "Simple js logger for web-based user studies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "beefy index.js --live"
+  },
+  "keywords": [
+    "log",
+    "json"
+  ],
+  "author": "Ben Lafreniere",
+  "license": "MIT",
+  "dependencies": {
+    "browser-request": "^0.3.3",
+    "lodash": "^2.4.1",
+    "moment": "^2.8.4",
+    "q": "^1.1.2"
+  }
+}
