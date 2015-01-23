@@ -1,4 +1,4 @@
-var StudyLogger = require('./index.js'),
+var StudyLogger = require('./StudyLogger.js'),
     Q = require('q');
 
 StudyLogger.initialize('http://127.0.0.1:9250/add', {

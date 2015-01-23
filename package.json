@@ -2,7 +2,7 @@
   "name": "study-logger",
   "version": "1.0.0",
   "description": "Simple js logger for web-based user studies.",
-  "main": "index.js",
+  "main": "StudyLogger.js",
   "scripts": {
     "test": "beefy index.js --live"
   },
