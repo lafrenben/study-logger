@@ -11,8 +11,7 @@ var StudyLogger = {
     this.url = url;
     this.defaults = _.merge({
       startDate: moment().format(),
-      startTimestamp: +moment(),
-      resumeTimestamp: 0
+      startTimestamp: +moment()
     }, extras || {});
 
     if (options && options.debug) {
