@@ -6,7 +6,7 @@ var _ = require('lodash'),
 
 var StudyLogger = {
 
-  initialize: function(url, extras) {
+  initialize: function(url, extras, options) {
     var _this = this;
     this.url = url;
     this.defaults = _.merge({
@@ -14,6 +14,12 @@ var StudyLogger = {
       startTimestamp: +moment(),
       resumeTimestamp: 0
     }, extras || {});
+
+    if (options && options.debug) {
+      this.debugMode = true;
+    } else {
+      this.debugMode = false;
+    }
 
     this.sendQueue = new BatchQueue({
       delay: 1000,
@@ -37,6 +43,9 @@ var StudyLogger = {
   logEvent: function(params) {
     var alwaysInclude = {timestamp: +moment()};
     var event = _.extend({}, this.defaults, alwaysInclude, params);
+    if (this.debugMode) {
+      console.log( event );
+    }
     this.sendQueue.add(event);
   }
 
