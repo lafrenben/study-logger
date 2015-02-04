@@ -1,7 +1,7 @@
 var _ = require('lodash'),
     Q = require('q'),
     moment = require('moment'),
-    request = require('browser-request'),
+    request = require('superagent'),
     BatchQueue = require('./BatchQueue.js');
 
 var StudyLogger = {
@@ -26,14 +26,16 @@ var StudyLogger = {
       callback: function(batch) {
 	var deferred = Q.defer();
 	var data = batch;
-	request.post({url: _this.url, json: batch},
-		     function (error, response, body) {
-		       if (!error && response.statusCode == 200) {
-			 deferred.resolve();
-		       } else {
-			 deferred.reject(error);
-		       }
-		     });
+	request
+	  .post(_this.url)
+	  .send(batch)
+	  .end(function(res) {
+	    if (res.ok) {
+	      deferred.resolve();
+	    } else {
+	      deferred.reject(res.text);
+	    }
+	  });
 	return deferred.promise;
       }
     });
@@ -43,6 +45,7 @@ var StudyLogger = {
     var alwaysInclude = {timestamp: +moment()};
     var event = _.extend({}, this.defaults, alwaysInclude, params);
     if (this.debugMode) {
+      console.log( event['type'] );
       console.log( event );
     }
     this.sendQueue.add(event);
