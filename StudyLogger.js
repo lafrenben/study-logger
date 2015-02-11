@@ -33,6 +33,9 @@ var StudyLogger = {
 	    if (res.ok) {
 	      deferred.resolve();
 	    } else {
+	      if (_this.debugMode) {
+		window.alert("Error sending log events to server!\n" + res.text);
+	      }
 	      deferred.reject(res.text);
 	    }
 	  });
