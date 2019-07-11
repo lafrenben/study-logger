@@ -1,7 +1,7 @@
 var StudyLogger = require('./StudyLogger.js'),
     Q = require('q');
 
-StudyLogger.initialize('http://127.0.0.1:8080/log?user=Test2&auth=123', {
+StudyLogger.initialize('http://127.0.0.1:9250/log?user=TestUser&auth=0', {
   boolTest: true,
   numberTest: 1,
   stringTest: "Blah",
