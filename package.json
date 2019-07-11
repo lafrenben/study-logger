@@ -13,9 +13,9 @@
   "author": "Ben Lafreniere",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^2.4.1",
+    "lodash": "^4.17.14",
     "moment": "^2.8.4",
     "q": "^1.1.2",
-    "superagent": "^0.21.0"
+    "superagent": "^5.1.0"
   }
 }
