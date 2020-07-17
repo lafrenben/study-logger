@@ -13,7 +13,7 @@
   "author": "Ben Lafreniere",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "moment": "^2.8.4",
     "q": "^1.1.2",
     "superagent": "^5.1.0"
