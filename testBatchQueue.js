@@ -16,9 +16,9 @@ var testQueue = new BatchQueue({
     Q.delay(1000).then(function() {
       testBatch += 1;
       if (testBatch !== FAIL_ON) {
-	deferred.resolve();
+	      deferred.resolve();
       } else {
-	deferred.reject("Something went wrong!");
+	      deferred.reject("Faked something going wrong!");
       }
     });
     return deferred.promise;
